@@ -1,0 +1,1343 @@
+/* homepage.css - Styles for all 10 distinct, non-repeating homepage sections */
+
+/* ============================================================
+   SECTION 01: CINEMATIC HERO
+============================================================ */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 0 5rem;
+  overflow: hidden;
+}
+
+.hero-backdrop-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+#hero-nebula-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(3, 4, 10, 0.2) 0%, rgba(3, 4, 10, 0.9) 85%);
+  pointer-events: none;
+}
+
+.hero-container {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-hud-telemetry {
+  position: static;
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(0, 217, 255, 0.6);
+  letter-spacing: 2px;
+  line-height: 1.8;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  max-width: 680px;
+  margin: 0;
+  margin-right: auto;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 7vw, 6.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 0 50px rgba(108, 99, 255, 0.5);
+  background: linear-gradient(180deg, #ffffff 30%, #a0b1d8 75%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-lead {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  color: #c4d1eb;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--secondary);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  animation: floatBounce 2.5s ease-in-out infinite;
+  z-index: 2;
+}
+
+.scroll-mouse-icon {
+  width: 22px;
+  height: 36px;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  position: relative;
+}
+
+.scroll-wheel {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--secondary);
+  border-radius: 2px;
+  animation: scrollWheelPulse 1.8s ease infinite;
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+}
+
+@keyframes scrollWheelPulse {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, 12px); opacity: 0; }
+}
+
+/* ============================================================
+   SECTION 02: SOLAR SYSTEM INTERACTIVE ORBIT
+============================================================ */
+.orbit-section {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.orbit-header-wrapper {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 3rem;
+}
+
+.orbit-stage-container {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  background: radial-gradient(circle at center, rgba(11, 16, 32, 0.9) 0%, rgba(3, 4, 10, 0.95) 75%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-card);
+}
+
+#orbit-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.orbit-hud-panel {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 320px;
+  background: rgba(7, 11, 22, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow);
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.orbit-hud-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--secondary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.orbit-hud-name {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.orbit-data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin: 1.2rem 0;
+}
+
+.orbit-data-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.orbit-data-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.orbit-data-val {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-top: 0.2rem;
+}
+
+.orbit-speed-controls {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  gap: 0.6rem;
+  background: rgba(7, 11, 22, 0.85);
+  padding: 0.6rem 1rem;
+  border-radius: 30px;
+  border: 1px solid var(--border-subtle);
+  z-index: 10;
+}
+
+.orbit-ctrl-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.orbit-ctrl-btn.active,
+.orbit-ctrl-btn:hover {
+  background: var(--secondary);
+  color: #000;
+  font-weight: 600;
+}
+
+/* ============================================================
+   SECTION 03: FEATURED WORLDS (EDITORIAL ASYMMETRIC)
+============================================================ */
+.featured-worlds-section {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.worlds-asymmetric-canvas {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr 1.4fr;
+  grid-template-rows: auto auto;
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+/* Slider Header & Navigation Controls */
+.section-slider-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.slider-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.slider-arrow-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.slider-arrow-btn:hover {
+  background: var(--secondary);
+  color: #000;
+  border-color: var(--secondary);
+  box-shadow: 0 0 15px var(--secondary-glow);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   SECTION 03: FEATURED WORLDS (CENTER-MODE SLIDER)
+============================================================ */
+.featured-worlds-section {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.center-mode-slider-viewport {
+  width: 100%;
+  overflow: hidden;
+  padding: 3rem 0;
+  position: relative;
+}
+
+.center-mode-slider-track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  transition: transform 0.6s var(--ease-cosmic);
+  will-change: transform;
+}
+
+.world-center-slide {
+  flex: 0 0 420px;
+  max-width: 420px;
+  transform: scale(0.85);
+  opacity: 0.55;
+  filter: blur(1px);
+  transition: transform 0.6s var(--ease-cosmic), opacity 0.6s ease, filter 0.6s ease;
+}
+
+.world-center-slide.active-center {
+  transform: scale(1.08);
+  opacity: 1;
+  filter: blur(0);
+  z-index: 10;
+}
+
+.world-center-slide.active-center .world-editorial-card {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 30px var(--secondary-glow);
+  border-color: var(--secondary);
+}
+
+.world-editorial-card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  transition: transform 0.5s var(--ease-cosmic), border-color 0.4s ease, box-shadow 0.4s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+  padding: 20px 0 0;
+}
+
+.world-card-mars { border-top: 3px solid var(--mars-accent); }
+.world-card-jupiter { border-top: 3px solid var(--jupiter-accent); }
+.world-card-saturn { border-top: 3px solid var(--saturn-accent); }
+.world-card-neptune { border-top: 3px solid var(--neptune-accent); }
+
+.world-card-visual {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.world-planet-sphere {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.6s var(--ease-cosmic);
+}
+
+.world-center-slide.active-center .world-planet-sphere {
+  transform: scale(1.08) rotate(15deg);
+}
+
+.mars-sphere {
+  background: radial-gradient(circle at 35% 35%, #ff7b54 0%, #b82601 50%, #4a0e0e 95%);
+  box-shadow: inset -20px -20px 40px #000, 0 0 35px var(--mars-glow);
+}
+
+.jupiter-sphere {
+  width: 240px;
+  height: 240px;
+  background: repeating-linear-gradient(
+    170deg,
+    #3f2010 0px,
+    #d1884f 15px,
+    #ebd5b3 35px,
+    #7a3e1d 55px,
+    #d1884f 75px
+  );
+  box-shadow: inset -35px -35px 70px #000, 0 0 45px rgba(229, 154, 84, 0.4);
+}
+
+.saturn-sphere {
+  background: radial-gradient(circle at 35% 35%, #ffe6a7 0%, #bb9457 50%, #43281c 95%);
+  box-shadow: inset -20px -20px 40px #000, 0 0 35px rgba(255, 209, 102, 0.4);
+}
+
+.saturn-ring-decor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  width: 280px;
+  height: 55px;
+  border: 12px solid rgba(255, 209, 102, 0.5);
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255, 209, 102, 0.3);
+  pointer-events: none;
+}
+
+.neptune-sphere {
+  background: radial-gradient(circle at 35% 35%, #00b4d8 0%, #0077b6 50%, #03045e 95%);
+  box-shadow: inset -20px -20px 40px #000, 0 0 40px rgba(58, 134, 255, 0.5);
+}
+
+.world-card-body {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.world-card-num {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.15;
+  margin-bottom: 0.3rem;
+}
+
+.world-card-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+  color: #fff;
+}
+
+.world-card-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  flex: 1;
+  line-height: 1.6;
+}
+
+.world-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--secondary);
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.world-editorial-card:hover .world-card-arrow {
+  gap: 0.9rem;
+}
+
+/* ============================================================
+   SECTION 04: COSMIC TIMELINE (STEPPER STORYTELLING SLIDER)
+============================================================ */
+.timeline-section {
+  padding: 8rem 0;
+  position: relative;
+  background: linear-gradient(180deg, transparent 0%, rgba(7, 11, 22, 0.85) 50%, transparent 100%);
+}
+
+.timeline-stepper-bar {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(11, 16, 32, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: 30px;
+  padding: 0.4rem;
+  margin-bottom: 3rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.stepper-step-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.stepper-step-btn.active,
+.stepper-step-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.timeline-stage-viewport {
+  position: relative;
+  min-height: 400px;
+}
+
+.timeline-story-slide {
+  display: none;
+  animation: fadeInStory 0.5s ease;
+}
+
+.timeline-story-slide.active {
+  display: block;
+}
+
+@keyframes fadeInStory {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.timeline-story-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 3rem;
+  align-items: center;
+  box-shadow: var(--box-shadow-card);
+}
+
+.timeline-era-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--secondary);
+  letter-spacing: 2px;
+  margin-bottom: 0.8rem;
+}
+
+.timeline-story-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.timeline-story-body {
+  color: #c4d1eb;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1.8rem;
+}
+
+.timeline-story-visual {
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(3, 4, 10, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.timeline-story-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cosmic-singularity-sphere {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ffffff 0%, #a855f7 40%, #000 85%);
+  box-shadow: 0 0 50px var(--accent-glow);
+  animation: pulseBeacon 2s infinite;
+}
+
+.cosmic-star-sphere {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #fff 0%, #6c63ff 50%, #000 90%);
+  box-shadow: 0 0 60px var(--primary-glow);
+}
+
+.cosmic-sol-sphere {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #fff 0%, #ffaa00 50%, #ff4400 90%);
+  box-shadow: 0 0 60px rgba(255, 170, 0, 0.5);
+}
+
+.cosmic-earth-sphere {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #48cae4 0%, #0077b6 50%, #023e8a 95%);
+  box-shadow: 0 0 50px rgba(72, 202, 228, 0.4);
+}
+
+/* ============================================================
+   SECTION 05: PLANET SPOTLIGHT (SATURN SPLIT-SCREEN)
+============================================================ */
+.spotlight-section {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-split-wrapper {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.spotlight-visual-stage {
+  position: relative;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotlight-saturn-planet {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fde68a 0%, #d97706 60%, #451a03 100%);
+  box-shadow: inset -30px -30px 60px #000, 0 0 50px rgba(253, 230, 138, 0.25);
+  position: relative;
+  z-index: 2;
+  animation: slowPlanetRotate 30s linear infinite;
+}
+
+.spotlight-saturn-rings-outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-28deg);
+  width: 580px;
+  height: 120px;
+  border: 24px solid rgba(253, 230, 138, 0.4);
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.3);
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes slowPlanetRotate {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(15deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+
+.spotlight-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.spotlight-stat-box {
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 1.2rem;
+}
+
+.spotlight-stat-num {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.spotlight-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+/* ============================================================
+   SECTION 06: SPACE MISSIONS (MISSION CONTROL DASHBOARD)
+============================================================ */
+.missions-section {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.mission-console-frame {
+  background: #060913;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 217, 255, 0.1);
+  margin-top: 3.5rem;
+}
+
+.console-topbar {
+  background: rgba(11, 16, 32, 0.9);
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.console-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--secondary);
+}
+
+.live-beacon-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseBeacon 2s infinite;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.console-layout-grid {
+  display: grid;
+  grid-template-columns: 240px 1.2fr 1.1fr;
+  min-height: 520px;
+}
+
+.console-mission-nav {
+  background: rgba(7, 11, 22, 0.7);
+  border-right: 1px solid var(--border-subtle);
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mission-tab-item {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 1rem 1.8rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.mission-tab-item:hover,
+.mission-tab-item.active {
+  background: rgba(0, 217, 255, 0.08);
+  color: #fff;
+  border-left-color: var(--secondary);
+}
+
+.mission-tab-item.active .mission-badge-status {
+  background: var(--secondary);
+  color: #000;
+}
+
+.mission-badge-status {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.console-main-feed {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.mission-feed-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.mission-title-big {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.mission-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin: 1.8rem 0;
+}
+
+.telemetry-cell {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.9rem;
+}
+
+.telemetry-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.telemetry-value {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--secondary);
+  margin-top: 0.3rem;
+}
+
+.telemetry-ticker-bar {
+  background: rgba(0, 217, 255, 0.05);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--secondary);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Console Media Stage on Right Side */
+.console-media-stage {
+  position: relative;
+  background: #03040a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.media-frame-hud {
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(7, 11, 22, 0.8);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+}
+
+.media-hud-tag {
+  color: var(--secondary);
+}
+
+.media-hud-status {
+  color: #10b981;
+}
+
+.console-hd-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 380px;
+  display: block;
+  transition: opacity 0.35s ease, transform 0.6s var(--ease-cosmic);
+}
+
+.console-media-stage:hover .console-hd-img {
+  transform: scale(1.04);
+}
+
+.media-frame-footer {
+  padding: 0.6rem 1.2rem;
+  background: rgba(7, 11, 22, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   SECTION 07: SPACE FACTS (THE UNIVERSE BY NUMBERS)
+============================================================ */
+.facts-scatter-section {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.facts-scatter-canvas {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.fact-scatter-item {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-cosmic), border-color 0.3s ease;
+}
+
+.fact-scatter-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--secondary);
+}
+
+.fact-box-1 {
+  grid-column: 1 / 8;
+  border-left: 4px solid var(--secondary);
+}
+
+.fact-box-2 {
+  grid-column: 8 / 13;
+  border-top: 4px solid var(--accent);
+}
+
+.fact-box-3 {
+  grid-column: 1 / 6;
+  border-bottom: 4px solid var(--primary);
+}
+
+.fact-box-4 {
+  grid-column: 6 / 13;
+  border-right: 4px solid var(--secondary);
+}
+
+.fact-massive-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  letter-spacing: -1px;
+}
+
+.fact-scatter-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.fact-scatter-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTION 08: DEEP SPACE GALLERY (IRREGULAR ARTISTIC MOSAIC)
+============================================================ */
+.gallery-section {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.gallery-mosaic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 240px;
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.gallery-mosaic-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  transition: all 0.4s var(--ease-cosmic);
+}
+
+.gallery-span-wide {
+  grid-column: span 2;
+}
+
+.gallery-span-tall {
+  grid-row: span 2;
+}
+
+.gallery-thumb-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-cosmic);
+}
+
+.gallery-mosaic-item:hover .gallery-thumb-canvas {
+  transform: scale(1.08);
+}
+
+.gallery-overlay-badge {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(3, 4, 10, 0.9) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-cat-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.gallery-item-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 0.3rem;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 4, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content-box {
+  max-width: 900px;
+  width: 90%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 217, 255, 0.2);
+  position: relative;
+}
+
+.lightbox-view-canvas {
+  width: 100%;
+  height: 480px;
+  display: block;
+}
+
+.lightbox-meta {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #fff;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+
+/* ============================================================
+   SECTION 09: EXPLORE THE UNKNOWN (CINEMATIC CTA)
+============================================================ */
+.unknown-section {
+  padding: 10rem 0;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(108, 99, 255, 0.15) 0%, transparent 70%);
+}
+
+.unknown-cosmic-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  border: 1px dashed rgba(0, 217, 255, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ringSpinSlow 60s linear infinite;
+}
+
+@keyframes ringSpinSlow {
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.unknown-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.unknown-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   SECTION 10: FINAL COSMIC CTA & CONSTELLATION MAP
+============================================================ */
+.final-cta-section {
+  padding: 10rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(11, 16, 32, 0.9), rgba(7, 11, 22, 0.95));
+  border: 1px solid var(--border-glow);
+  border-radius: 24px;
+  padding: 6rem 3rem;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(108, 99, 255, 0.2);
+  overflow: hidden;
+}
+.final-cta-card .hero-cta-group{justify-content: center;}
+#constellation-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.final-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.final-cta-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.final-footnote {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  margin-top: 3rem;
+}
+
+/* ================================================================
+   CENTER-MODE SLIDER – Enhanced Sizing & Transition Fixes
+================================================================ */
+
+/* Make active card clearly bigger than flanking cards */
+.world-center-slide {
+  flex: 0 0 380px;
+  max-width: 380px;
+  transform: scale(0.78);
+  opacity: 0.45;
+  filter: blur(2px) brightness(0.7);
+  transition: transform 0.65s cubic-bezier(0.16,1,0.3,1),
+              opacity 0.65s ease,
+              filter 0.65s ease;
+  pointer-events: none;
+}
+
+.world-center-slide.active-center {
+  transform: scale(1);
+  opacity: 1;
+  filter: blur(0) brightness(1);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* Track carries the horizontal translation set by JS */
+.center-mode-slider-track {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+  transition: transform 0.65s cubic-bezier(0.16,1,0.3,1);
+  will-change: transform;
+}
+
+/* Viewport clips the track */
+.center-mode-slider-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ================================================================
+   TIMELINE FACT PILL (missing utility)
+================================================================ */
+.timeline-fact-pill {
+  display: inline-block;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid rgba(0, 217, 255, 0.35);
+  border-radius: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--secondary);
+  background: rgba(0, 217, 255, 0.07);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* ================================================================
+   TIMELINE STORY SLIDE – ensure grid shows inside .active
+================================================================ */
+.timeline-story-slide {
+  display: none;
+  animation: fadeInStory 0.5s ease forwards;
+}
+.timeline-story-slide.active {
+  display: block;
+}
+.timeline-story-slide .timeline-story-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: var(--box-shadow-card);
+}

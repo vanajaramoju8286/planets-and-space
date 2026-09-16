@@ -1,0 +1,48 @@
+﻿/* designTokens.css - COSMOS Design System Tokens */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+  /* Cosmic Color Palette */
+  --bg-deep: #03040a;
+  --bg-space: #070b16;
+  --bg-card: #0b1020;
+  --bg-card-hover: #121933;
+  --bg-glass: rgba(11, 16, 32, 0.65);
+  --bg-glass-strong: rgba(7, 11, 22, 0.85);
+
+  /* Neon Accents & Accents */
+  --primary: #6c63ff;
+  --primary-glow: rgba(108, 99, 255, 0.45);
+  --secondary: #00d9ff;
+  --secondary-glow: rgba(0, 217, 255, 0.45);
+  --accent: #a855f7;
+  --accent-glow: rgba(168, 85, 247, 0.45);
+  --mars-accent: #ff4e36;
+  --mars-glow: rgba(255, 78, 54, 0.45);
+  --jupiter-accent: #e59a54;
+  --saturn-accent: #ffd166;
+  --neptune-accent: #3a86ff;
+  --highlight: #ffffff;
+  --text-muted: #8b93a7;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 217, 255, 0.25);
+
+  /* Typography */
+  --font-heading: 'Orbitron', -apple-system, sans-serif;
+  --font-display: 'Audiowide', cursive;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  /* Shadows & Outer Glows */
+  --glow-primary: 0 0 25px var(--primary-glow);
+  --glow-secondary: 0 0 25px var(--secondary-glow);
+  --glow-accent: 0 0 25px var(--accent-glow);
+  --box-shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* Transitions & Timing */
+  --ease-cosmic: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-cosmic);
+  --transition-normal: 0.4s var(--ease-cosmic);
+  --transition-slow: 0.8s var(--ease-cosmic);
+}

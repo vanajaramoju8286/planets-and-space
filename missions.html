@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Track humanity historic and ongoing deep space exploration missions with interactive telemetry console." />
+  <title>Space Exploration Missions – COSMOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/designTokens.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/homepage.css" />
+  <link rel="stylesheet" href="css/inner-pages.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <canvas id="starfield-canvas"></canvas>
+  <div class="cosmic-vignette"></div>
+
+
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon"><div class="logo-orbit"></div><div class="logo-core"></div></div>
+        <span class="logo-text">COSMOS</span>
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="planets.html" class="">Planets</a></li>
+          <li><a href="solar-system.html" class="">Solar System</a></li>
+          <li><a href="missions.html" class="active">Missions</a></li>
+          <li><a href="index.html#section-featured">Discover</a></li>
+          <li><a href="space-facts.html" class="">Space Facts</a></li>
+          <li><a href="gallery.html" class="">Gallery</a></li>
+          <li><a href="about.html" class="">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="audio-toggle-btn" aria-label="Toggle Ambient Sound" title="Cosmic Ambient Sound">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        </button>
+        <a href="solar-system.html" class="btn btn-primary btn-glow">EXPLORE SPACE</a>
+        <button class="mobile-nav-toggle" aria-label="Open Menu"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu-drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="">Home</a></li>
+      <li><a href="planets.html" class="">Planets</a></li>
+      <li><a href="solar-system.html" class="">Solar System</a></li>
+      <li><a href="missions.html" class="active">Missions</a></li>
+      <li><a href="space-facts.html" class="">Space Facts</a></li>
+      <li><a href="gallery.html" class="">Gallery</a></li>
+      <li><a href="about.html" class="">About</a></li>
+    </ul>
+    <div style="margin-top: 2rem;"><a href="solar-system.html" class="btn btn-primary" style="width:100%;">LAUNCH SIMULATION</a></div>
+  </div>
+
+<main>
+  <div class="page-hero-banner">
+    <div class="container">
+      <span class="eyebrow">CHRONICLES OF HUMAN VOYAGES</span>
+      <h1 class="page-hero-title">SPACE MISSIONS ARCHIVE</h1>
+      <p class="section-lead" style="margin: 0 auto;">
+        From the first lunar boot-prints to robotic probes cruising through interstellar space.
+      </p>
+    </div>
+  </div>
+
+  <div class="container" style="margin-bottom: 8rem;">
+    <!-- Mission Filter & Search Bar -->
+    <div class="planets-controls-bar" style="margin: 2rem 0 3rem;">
+      <div class="filter-pills-group">
+        <button class="filter-pill-btn active" data-dest="all">ALL DESTINATIONS</button>
+        <button class="filter-pill-btn" data-dest="moon">LUNAR</button>
+        <button class="filter-pill-btn" data-dest="mars">MARS</button>
+        <button class="filter-pill-btn" data-dest="interstellar">INTERSTELLAR</button>
+        <button class="filter-pill-btn" data-dest="telescope">DEEP OBSERVATORIES</button>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--secondary);">
+        ACTIVE ARCHIVES // 6 HISTORIC LOGS
+      </div>
+    </div>
+
+    <!-- Editorial Mission Dossier Grid (Unique to innerpage, not repeating homepage console) -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem;">
+      <!-- Mission 1: Apollo 11 -->
+      <article class="glass-panel" style="padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid var(--secondary);">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="eyebrow" style="margin-bottom: 0;">1969 // NASA</span>
+            <span class="mission-badge-status" style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 0.3rem 0.6rem;">SUCCESS</span>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">APOLLO 11</h2>
+          <p style="color: var(--secondary); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem;">Target: Mare Tranquillitatis, The Moon</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Humanity's first manned lunar landing. Neil Armstrong and Buzz Aldrin spent 21 hours on the lunar surface while Michael Collins piloted Columbia in orbit, returning 21.55 kg of lunar samples to Earth.
+          </p>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+          CREW: Armstrong, Aldrin, Collins | DURATION: 195h 18m
+        </div>
+      </article>
+
+      <!-- Mission 2: Voyager 1 & 2 -->
+      <article class="glass-panel" style="padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid var(--accent);">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="eyebrow" style="margin-bottom: 0;">1977 // NASA JPL</span>
+            <span class="mission-badge-status" style="background: rgba(0, 217, 255, 0.2); color: var(--secondary); padding: 0.3rem 0.6rem;">INTERSTELLAR</span>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">VOYAGER 1 & 2</h2>
+          <p style="color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem;">Target: Outer Planets & Interstellar Space</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Grand Tour of Jupiter, Saturn, Uranus, and Neptune. In 2012, Voyager 1 became the first human-made object to cross the heliopause into interstellar space, now over 24 billion km from Earth.
+          </p>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+          PAYLOAD: Golden Record | SPEED: 61,200 km/h
+        </div>
+      </article>
+
+      <!-- Mission 3: Hubble Space Telescope -->
+      <article class="glass-panel" style="padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid var(--primary);">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="eyebrow" style="margin-bottom: 0;">1990 // NASA ESA</span>
+            <span class="mission-badge-status" style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 0.3rem 0.6rem;">OPERATIONAL</span>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">HUBBLE TELESCOPE</h2>
+          <p style="color: var(--primary); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem;">Target: Low Earth Orbit (547 km)</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Revolutionized modern astrophysics with over 1.5 million observations. Resolved the expansion rate of the universe, discovered dark energy, and captured the iconic Ultra Deep Field.
+          </p>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+          MIRROR: 2.4m Primary | ORBITS: 180,000+
+        </div>
+      </article>
+
+      <!-- Mission 4: James Webb (JWST) -->
+      <article class="glass-panel" style="padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid var(--secondary);">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="eyebrow" style="margin-bottom: 0;">2021 // NASA ESA CSA</span>
+            <span class="mission-badge-status" style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 0.3rem 0.6rem;">ACTIVE SCIENCE</span>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">JAMES WEBB (JWST)</h2>
+          <p style="color: var(--secondary); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem;">Target: Sun-Earth L2 Lagrange Point (1.5M km)</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            The premier infrared space observatory. Unfolded a 6.5m gold-beryllium primary mirror to detect the first primordial galaxies born just 300 million years after the Big Bang.
+          </p>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+          TEMPERATURE: -233°C (40 K) | WAVELENGTH: 0.6 - 28 μm
+        </div>
+      </article>
+
+      <!-- Mission 5: Mars Perseverance & Ingenuity -->
+      <article class="glass-panel" style="padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid var(--mars-accent);">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="eyebrow" style="margin-bottom: 0;">2020 // NASA JPL</span>
+            <span class="mission-badge-status" style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 0.3rem 0.6rem;">ACTIVE SAMPLING</span>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">PERSEVERANCE & INGENUITY</h2>
+          <p style="color: var(--mars-accent); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem;">Target: Jezero Crater, Mars</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Investigating ancient river deltas for biosignatures, collecting rock core sample tubes for future Earth return, and achieving the first powered aerial flights on another planet with Ingenuity.
+          </p>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+          FLIGHTS: 72 Aerial Sorties | CORES: 24 Sealed Tubes
+        </div>
+      </article>
+
+      <!-- Mission 6: Artemis Program -->
+      <article class="glass-panel" style="padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid var(--secondary);">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="eyebrow" style="margin-bottom: 0;">2022+ // INTERNATIONAL</span>
+            <span class="mission-badge-status" style="background: rgba(0, 217, 255, 0.2); color: var(--secondary); padding: 0.3rem 0.6rem;">ACTIVE CAMPAIGN</span>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">ARTEMIS PROGRAM</h2>
+          <p style="color: var(--secondary); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem;">Target: Lunar South Pole & Lunar Gateway</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Landing the first woman and first person of color on the Moon. Establishing sustainable long-term lunar surface infrastructure and testing technologies for crewed expeditions to Mars.
+          </p>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+          ROCKET: Space Launch System (SLS) | CRAFT: Orion Capsule
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cosmic-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo-brand"><div class="logo-icon"><div class="logo-orbit"></div><div class="logo-core"></div></div><span class="logo-text">COSMOS</span></a>
+          <p style="color: var(--text-muted); margin-top: 1rem;">An interactive, high-end portal dedicated to the wonder, science, and exploration of our solar system and the deep universe.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Exploration</h4>
+          <ul class="footer-links">
+            <li><a href="planets.html">Planetary Index</a></li>
+            <li><a href="solar-system.html">Solar System 3D</a></li>
+            <li><a href="missions.html">Mission Control</a></li>
+            <li><a href="space-facts.html">Cosmic Facts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul class="footer-links">
+            <li><a href="gallery.html">Deep Space Gallery</a></li>
+            <li><a href="about.html">About Project</a></li>
+            <li><a href="about.html#manifesto">Why We Explore</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Dispatch</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.8rem;">Get cosmic discoveries and mission updates.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Dispatch!');">
+            <input type="email" class="newsletter-input" placeholder="Your email" required />
+            <button type="submit" class="newsletter-btn">JOIN</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 COSMOS. EXPLORE BEYOND. ALL RIGHTS RESERVED.</div>
+        <div class="social-links">
+          <a href="#" class="social-link">INSTAGRAM</a>
+          <a href="#" class="social-link">YOUTUBE</a>
+          <a href="#" class="social-link">X (TWITTER)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/cursor.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/orbit-simulation.js"></script>
+  <script src="js/missions-console.js"></script>
+  <script src="js/facts-counter.js"></script>
+  <script src="js/gallery-lightbox.js"></script>
+  <script src="js/planet-compare.js"></script>
+  <script src="js/hero-video.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

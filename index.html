@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Journey beyond Earth and discover the worlds, systems and mysteries that shape our universe." />
+  <title>COSMOS – Explore the Infinite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/designTokens.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/homepage.css" />
+  <link rel="stylesheet" href="css/inner-pages.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <canvas id="starfield-canvas"></canvas>
+  <div class="cosmic-vignette"></div>
+
+
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon"><div class="logo-orbit"></div><div class="logo-core"></div></div>
+        <span class="logo-text">COSMOS</span>
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="planets.html" class="">Planets</a></li>
+          <li><a href="solar-system.html" class="">Solar System</a></li>
+          <li><a href="missions.html" class="">Missions</a></li>
+          <li><a href="index.html#section-featured">Discover</a></li>
+          <li><a href="space-facts.html" class="">Space Facts</a></li>
+          <li><a href="gallery.html" class="">Gallery</a></li>
+          <li><a href="about.html" class="">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="audio-toggle-btn" aria-label="Toggle Ambient Sound" title="Cosmic Ambient Sound">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        </button>
+        <a href="solar-system.html" class="btn btn-primary btn-glow">EXPLORE SPACE</a>
+        <button class="mobile-nav-toggle" aria-label="Open Menu"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu-drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="planets.html" class="">Planets</a></li>
+      <li><a href="solar-system.html" class="">Solar System</a></li>
+      <li><a href="missions.html" class="">Missions</a></li>
+      <li><a href="space-facts.html" class="">Space Facts</a></li>
+      <li><a href="gallery.html" class="">Gallery</a></li>
+      <li><a href="about.html" class="">About</a></li>
+    </ul>
+    <div style="margin-top: 2rem;"><a href="solar-system.html" class="btn btn-primary" style="width:100%;">LAUNCH SIMULATION</a></div>
+  </div>
+
+<main>
+  <!-- SECTION 01: CINEMATIC HERO -->
+  <section class="hero-section" id="section-hero">
+    <div class="hero-backdrop-container">
+      <canvas id="hero-nebula-canvas"></canvas>
+      <div class="hero-vignette-overlay"></div>
+    </div>
+    <div class="container hero-container">
+      <div class="hero-hud-telemetry">
+        <div>ORBITAL LOC: [RA 18h 36m / DEC +38° 47′]</div>
+        <div>STELLAR DENSITY: 1.48e11 STARS / PARSEC³</div>
+        <div>COSMIC HORIZON: 46.5 BILLION LIGHT YEARS</div>
+      </div>
+      <div class="hero-content">
+        <span class="eyebrow">THE UNIVERSE IS WAITING</span>
+        <h1 class="hero-title">EXPLORE THE<br />INFINITE</h1>
+        <p class="hero-lead">
+          Journey beyond Earth and discover the worlds, systems and mysteries that shape our universe.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#section-orbit" class="btn btn-primary btn-glow">START EXPLORING</a>
+          <a href="planets.html" class="btn btn-secondary">DISCOVER PLANETS</a>
+        </div>
+      </div>
+    </div>
+    <a href="#section-orbit" class="hero-scroll-indicator" aria-label="Scroll to exploration">
+      <div class="scroll-mouse-icon"><div class="scroll-wheel"></div></div>
+      <span>DISCOVER</span>
+    </a>
+  </section>
+
+  <!-- SECTION 02: SOLAR SYSTEM INTERACTIVE ORBIT -->
+  <section class="orbit-section" id="section-orbit">
+    <div class="container">
+      <div class="orbit-header-wrapper">
+        <span class="eyebrow">OUR CELESTIAL HOME</span>
+        <h2 class="section-title">OUR SOLAR SYSTEM</h2>
+        <p class="section-lead">
+          Hover over any celestial body in real-time orbit to extract live telemetry, physical attributes, and exploration data.
+        </p>
+      </div>
+      <div class="orbit-stage-container">
+        <canvas id="orbit-canvas"></canvas>
+        <div class="orbit-speed-controls">
+          <button class="orbit-ctrl-btn" data-speed="pause">PAUSE</button>
+          <button class="orbit-ctrl-btn active" data-speed="1">1X</button>
+          <button class="orbit-ctrl-btn" data-speed="2.5">2.5X</button>
+          <button class="orbit-ctrl-btn" data-speed="5">5X</button>
+        </div>
+        <div class="orbit-hud-panel" id="orbit-hud-panel">
+          <div class="orbit-hud-badge" id="hud-planet-type">Terrestrial Planet</div>
+          <h3 class="orbit-hud-name" id="hud-planet-name">Earth</h3>
+          <div class="orbit-data-grid">
+            <div class="orbit-data-item">
+              <div class="orbit-data-label">Distance Sun</div>
+              <div class="orbit-data-val" id="hud-planet-dist">149.6M km</div>
+            </div>
+            <div class="orbit-data-item">
+              <div class="orbit-data-label">Diameter</div>
+              <div class="orbit-data-val" id="hud-planet-dia">12,742 km</div>
+            </div>
+            <div class="orbit-data-item">
+              <div class="orbit-data-label">Day Length</div>
+              <div class="orbit-data-val" id="hud-planet-day">24 hrs</div>
+            </div>
+            <div class="orbit-data-item">
+              <div class="orbit-data-label">Orbit Status</div>
+              <div class="orbit-data-val" style="color:#10b981;">STABLE</div>
+            </div>
+          </div>
+          <a href="planets.html" class="btn btn-secondary" style="width: 100%; margin-top: 0.5rem;">VIEW PLANET</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03: FEATURED WORLDS (CENTER-MODE SLIDER) -->
+  <section class="featured-worlds-section" id="section-featured">
+    <div class="container">
+      <div class="section-slider-header">
+        <div>
+          <span class="eyebrow">PLANETARY CAROUSEL</span>
+          <h2 class="section-title">EXTRAORDINARY WORLDS</h2>
+          <p class="section-lead">
+            Infinite center-mode orbital showcase with live auto-play and active focus enlargement.
+          </p>
+        </div>
+        <div class="slider-nav-arrows">
+          <button class="slider-arrow-btn" id="worlds-prev-btn" aria-label="Previous Planet">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="slider-arrow-btn" id="worlds-next-btn" aria-label="Next Planet">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="center-mode-slider-viewport" id="worlds-slider-viewport">
+        <div class="center-mode-slider-track" id="worlds-slider-track">
+          <!-- Slide 1: Mars -->
+          <div class="world-center-slide" data-index="0">
+            <div class="world-editorial-card world-card-mars">
+              <div class="world-card-visual"><div class="world-planet-sphere mars-sphere"></div></div>
+              <div class="world-card-body">
+                <span class="world-card-num">01</span>
+                <h3 class="world-card-name">MARS</h3>
+                <p class="world-card-desc">Red desert world harboring Olympus Mons and dry river deltas from a wet primordial epoch.</p>
+                <a href="planets.html" class="world-card-arrow">Explore World &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Jupiter -->
+          <div class="world-center-slide" data-index="1">
+            <div class="world-editorial-card world-card-jupiter">
+              <div class="world-card-visual"><div class="world-planet-sphere jupiter-sphere"></div></div>
+              <div class="world-card-body">
+                <span class="world-card-num">02</span>
+                <h3 class="world-card-name">JUPITER</h3>
+                <p class="world-card-desc">The King of Planets. A massive swirling gas giant whose Great Red Spot storm has raged for centuries.</p>
+                <a href="planets.html" class="world-card-arrow">Explore Gas Giant &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Saturn -->
+          <div class="world-center-slide" data-index="2">
+            <div class="world-editorial-card world-card-saturn">
+              <div class="world-card-visual">
+                <div class="world-planet-sphere saturn-sphere"></div>
+                <div class="saturn-ring-decor"></div>
+              </div>
+              <div class="world-card-body">
+                <span class="world-card-num">03</span>
+                <h3 class="world-card-name">SATURN</h3>
+                <p class="world-card-desc">Adorned with thousands of dazzling ringlets made of water ice, rock, and ancient cometary dust.</p>
+                <a href="planets.html" class="world-card-arrow">Explore Rings &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Neptune -->
+          <div class="world-center-slide" data-index="3">
+            <div class="world-editorial-card world-card-neptune">
+              <div class="world-card-visual"><div class="world-planet-sphere neptune-sphere"></div></div>
+              <div class="world-card-body">
+                <span class="world-card-num">04</span>
+                <h3 class="world-card-name">NEPTUNE</h3>
+                <p class="world-card-desc">The outermost giant, engulfed in deep methane-azure hues and freezing winds exceeding 2,100 km/h.</p>
+                <a href="planets.html" class="world-card-arrow">Explore Ice Giant &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Venus -->
+          <div class="world-center-slide" data-index="4">
+            <div class="world-editorial-card" style="border-top: 3px solid #ffd166;">
+              <div class="world-card-visual">
+                <div class="world-planet-sphere" style="background: radial-gradient(circle at 35% 35%, #ffd166 0%, #e76f51 60%, #582f0e 95%); box-shadow: 0 0 25px rgba(255, 209, 102, 0.4);"></div>
+              </div>
+              <div class="world-card-body">
+                <span class="world-card-num">05</span>
+                <h3 class="world-card-name">VENUS</h3>
+                <p class="world-card-desc">Earth's toxic twin. Enveloped in runaway greenhouse gases and clouds of sulfuric acid with crushing pressure.</p>
+                <a href="planets.html" class="world-card-arrow">Explore Atmosphere &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04: COSMIC TIMELINE (STEPPER STORYTELLING SLIDER) -->
+  <section class="timeline-section" id="section-timeline">
+    <div class="container">
+      <div class="section-slider-header">
+        <div>
+          <span class="eyebrow">CHRONICLES OF EXISTENCE</span>
+          <h2 class="section-title">FROM DUST TO DISCOVERY</h2>
+          <p class="section-lead">
+            Interactive chronological era stepper tracking the 13.8 billion-year journey of matter.
+          </p>
+        </div>
+        <div class="slider-nav-arrows">
+          <button class="slider-arrow-btn" id="timeline-prev-btn" aria-label="Previous Era">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="slider-arrow-btn" id="timeline-next-btn" aria-label="Next Era">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progressive Stepper Bar Indicator -->
+      <div class="timeline-stepper-bar" id="timeline-stepper-bar">
+        <button class="stepper-step-btn active" data-step="0">13.8B BC</button>
+        <button class="stepper-step-btn" data-step="1">13.6B BC</button>
+        <button class="stepper-step-btn" data-step="2">4.6B BC</button>
+        <button class="stepper-step-btn" data-step="3">3.8B BC</button>
+        <button class="stepper-step-btn" data-step="4">1969 AD</button>
+        <button class="stepper-step-btn" data-step="5">2022 AD</button>
+        <button class="stepper-step-btn" data-step="6">FUTURE</button>
+      </div>
+
+      <!-- Timeline Active Stage Viewer -->
+      <div class="timeline-stage-viewport">
+        <div class="timeline-slides-container" id="timeline-slides-container">
+          <!-- Step 0 -->
+          <div class="timeline-story-slide active">
+            <div class="timeline-story-grid">
+              <div class="timeline-story-content">
+                <div class="timeline-era-tag">13.8 BILLION B.C. // COSMIC DAWN</div>
+                <h3 class="timeline-story-title">The Big Bang</h3>
+                <p class="timeline-story-body">
+                  Spacetime, gravity, and the fundamental forces expand infinitely from an incomprehensibly dense and searing quantum singularity. Matter and antimatter clash until a minute baryon asymmetry seeds all atoms.
+                </p>
+                <div class="timeline-fact-pill">Cosmic Microwave Background radiation confirms universal expansion.</div>
+              </div>
+              <div class="timeline-story-visual">
+                <div class="cosmic-singularity-sphere"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="timeline-story-slide">
+            <div class="timeline-story-grid">
+              <div class="timeline-story-content">
+                <div class="timeline-era-tag">13.6 BILLION B.C. // REIONIZATION</div>
+                <h3 class="timeline-story-title">First Primordial Stars</h3>
+                <p class="timeline-story-body">
+                  Population III hyper-massive stars ignite in dense hydrogen clouds, fusing light gases into carbon, oxygen, and iron before detonating in cataclysmic pair-instability supernovae.
+                </p>
+                <div class="timeline-fact-pill">Seeded the barren cosmos with the building blocks of planets.</div>
+              </div>
+              <div class="timeline-story-visual">
+                <div class="cosmic-star-sphere"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-story-slide">
+            <div class="timeline-story-grid">
+              <div class="timeline-story-content">
+                <div class="timeline-era-tag">4.6 BILLION B.C. // ACCRETION DISK</div>
+                <h3 class="timeline-story-title">Solar System Birth</h3>
+                <p class="timeline-story-body">
+                  A molecular cloud collapses in the Orion Spur of the Milky Way, condensing into our Sun and a swirling accretion disk where electrostatic grains collide to form planetesimals.
+                </p>
+                <div class="timeline-fact-pill">99.86% of total system mass condensed into our home star.</div>
+              </div>
+              <div class="timeline-story-visual">
+                <div class="cosmic-sol-sphere"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-story-slide">
+            <div class="timeline-story-grid">
+              <div class="timeline-story-content">
+                <div class="timeline-era-tag">3.8 BILLION B.C. // BIOSPHERE DAWN</div>
+                <h3 class="timeline-story-title">Earliest Terran Life</h3>
+                <p class="timeline-story-body">
+                  Single-celled extremophiles awaken around deep-sea hydrothermal vents in primordial volcanic oceans. Cyanobacteria begin the Great Oxidation Event, shielding the planet with ozone.
+                </p>
+                <div class="timeline-fact-pill">The emergence of organic molecular self-replication.</div>
+              </div>
+              <div class="timeline-story-visual">
+                <div class="cosmic-earth-sphere"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-story-slide">
+            <div class="timeline-story-grid">
+              <div class="timeline-story-content">
+                <div class="timeline-era-tag">1969 A.D. // SPACE AGE</div>
+                <h3 class="timeline-story-title">First Lunar Footstep</h3>
+                <p class="timeline-story-body">
+                  Apollo 11 touches down on the Sea of Tranquility. Humanity sets physical boot-prints on another celestial world for the first time in planetary history.
+                </p>
+                <div class="timeline-fact-pill">"One small step for man, one giant leap for mankind."</div>
+              </div>
+              <div class="timeline-story-visual">
+                <img src="assets/apollo.jpg" alt="Apollo 11 on the Moon" class="timeline-story-img" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="timeline-story-slide">
+            <div class="timeline-story-grid">
+              <div class="timeline-story-content">
+                <div class="timeline-era-tag">2022 A.D. // DEEP INFRARED</div>
+                <h3 class="timeline-story-title">JWST Cosmic Dawn</h3>
+                <p class="timeline-story-body">
+                  James Webb Space Telescope unfurls its 6.5-meter gold mirror at L2, capturing the earliest proto-galaxies ever imaged and analyzing exoplanetary atmospheres for water vapor.
+                </p>
+                <div class="timeline-fact-pill">Resolving light emitted just 300 million years after the Big Bang.</div>
+              </div>
+              <div class="timeline-story-visual">
+                <img src="assets/jameswebb.jpg" alt="James Webb Space Telescope" class="timeline-story-img" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="timeline-story-slide">
+            <div class="timeline-story-grid">
+              <div class="timeline-story-content">
+                <div class="timeline-era-tag">THE FUTURE // MULTI-PLANETARY</div>
+                <h3 class="timeline-story-title">Interstellar Frontier</h3>
+                <p class="timeline-story-body">
+                  Permanent surface laboratories on the Moon and Mars, followed by robotic lightsail micro-probes launched toward Alpha Centauri at 20% the speed of light.
+                </p>
+                <div class="timeline-fact-pill">The dawn of an interstellar multi-planetary civilization.</div>
+              </div>
+              <div class="timeline-story-visual">
+                <img src="assets/voyager.jpg" alt="Interstellar Voyager" class="timeline-story-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05: PLANET SPOTLIGHT (SATURN) -->
+  <section class="spotlight-section" id="section-spotlight">
+    <div class="container">
+      <div class="spotlight-split-wrapper">
+        <div class="spotlight-visual-stage">
+          <div class="spotlight-saturn-planet"></div>
+          <div class="spotlight-saturn-rings-outer"></div>
+        </div>
+        <div class="spotlight-content-column">
+          <span class="eyebrow">PLANET SPOTLIGHT</span>
+          <h2 class="section-title">SATURN</h2>
+          <p class="section-lead" style="margin-bottom: 1.5rem;">
+            The jewel of our solar system. Encircled by a vast ring system spanning 282,000 km across yet averaging only 10 meters in thickness.
+          </p>
+          <div class="spotlight-stat-grid">
+            <div class="spotlight-stat-box">
+              <div class="spotlight-stat-num">116,460</div>
+              <div class="spotlight-stat-label">Diameter (KM)</div>
+            </div>
+            <div class="spotlight-stat-box">
+              <div class="spotlight-stat-num">1.43B</div>
+              <div class="spotlight-stat-label">Distance Sun (KM)</div>
+            </div>
+            <div class="spotlight-stat-box">
+              <div class="spotlight-stat-num">146</div>
+              <div class="spotlight-stat-label">Confirmed Moons</div>
+            </div>
+            <div class="spotlight-stat-box">
+              <div class="spotlight-stat-num">-140°C</div>
+              <div class="spotlight-stat-label">Avg Temperature</div>
+            </div>
+          </div>
+          <a href="planets.html" class="btn btn-primary btn-glow">DISCOVER SATURN</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 06: SPACE MISSIONS -->
+  <section class="missions-section" id="section-missions">
+    <div class="container missions-header">
+      <span class="eyebrow">MISSION CONTROL TELEMETRY</span>
+      <h2 class="section-title">HUMANITY GOES FURTHER</h2>
+      <p class="section-lead">
+        Real-time mission tracking console for our most daring probes, orbiting telescopes, and lunar landing vehicles.
+      </p>
+    </div>
+    <div class="mission-console-frame">
+        <div class="console-topbar">
+          <div class="console-status-indicator">
+            <span class="live-beacon-dot"></span>
+            <span>DEEP SPACE NETWORK // ONLINE</span>
+          </div>
+          <div style="color: var(--text-muted);">SECURITY CLEARANCE: PUBLIC-SCIENCE-ACCESS</div>
+        </div>
+        <div class="console-layout-grid">
+          <nav class="console-mission-nav">
+            <button class="mission-tab-item active" data-mission="apollo11">
+              <span>Apollo 11</span>
+              <span class="mission-badge-status">MOON</span>
+            </button>
+            <button class="mission-tab-item" data-mission="voyager">
+              <span>Voyager 1 & 2</span>
+              <span class="mission-badge-status">INTERSTELLAR</span>
+            </button>
+            <button class="mission-tab-item" data-mission="hubble">
+              <span>Hubble Telescope</span>
+              <span class="mission-badge-status">LEO</span>
+            </button>
+            <button class="mission-tab-item" data-mission="jameswebb">
+              <span>James Webb (JWST)</span>
+              <span class="mission-badge-status">L2 LAGRANGE</span>
+            </button>
+            <button class="mission-tab-item" data-mission="marsrover">
+              <span>Mars Perseverance</span>
+              <span class="mission-badge-status">JEZERO</span>
+            </button>
+            <button class="mission-tab-item" data-mission="artemis">
+              <span>Artemis Program</span>
+              <span class="mission-badge-status">ACTIVE</span>
+            </button>
+          </nav>
+          <div class="console-main-feed">
+            <div>
+              <div class="mission-feed-header">
+                <div>
+                  <h3 class="mission-title-big" id="mission-title">Apollo 11 (1969)</h3>
+                  <p style="color: var(--secondary); font-family: var(--font-mono); font-size: 0.85rem;" id="mission-dest">
+                    The Moon (Mare Tranquillitatis)
+                  </p>
+                </div>
+                <span class="mission-badge-status" style="padding: 0.4rem 0.8rem; background: rgba(16, 185, 129, 0.2); color: #10b981;" id="mission-status-badge">
+                  SUCCESS / HISTORIC
+                </span>
+              </div>
+              <p style="color: #c4d1eb; line-height: 1.7; margin-bottom: 1.5rem;" id="mission-objective">
+                Perform first crewed lunar landing and safely return to Earth.
+              </p>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                CREW / PLATFORM: <strong style="color: #fff;" id="mission-crew">Neil Armstrong, Buzz Aldrin, Michael Collins</strong>
+              </div>
+              <div class="mission-telemetry-grid">
+                <div class="telemetry-cell">
+                  <div class="telemetry-label" id="tel-1-label">Distance Traveled</div>
+                  <div class="telemetry-value" id="tel-1-val">384,400 km</div>
+                </div>
+                <div class="telemetry-cell">
+                  <div class="telemetry-label" id="tel-2-label">Mission Duration</div>
+                  <div class="telemetry-value" id="tel-2-val">8 Days 3 Hrs</div>
+                </div>
+                <div class="telemetry-cell">
+                  <div class="telemetry-label" id="tel-3-label">Sample Return</div>
+                  <div class="telemetry-value" id="tel-3-val">21.55 kg rock</div>
+                </div>
+              </div>
+            </div>
+            <div class="telemetry-ticker-bar" id="mission-log-stream">
+              [LIVE TELEMETRY] LUNAR MODULE TOUCHDOWN CONFIRMED: HOUSTON, TRANQUILITY BASE HERE. THE EAGLE HAS LANDED.
+            </div>
+          </div>
+
+          <!-- HD Mission Image Visual Stage on Right Side -->
+          <div class="console-media-stage">
+            <div class="media-frame-hud">
+              <span class="media-hud-tag">OPTICAL FEED // HD ARCHIVE</span>
+              <span class="media-hud-status">LIVE LINK</span>
+            </div>
+            <img id="mission-feed-img" src="assets/apollo.jpg" alt="Apollo 11 Lunar Mission" class="console-hd-img" />
+            <div class="media-frame-footer">
+              <span>RESOLUTION: 4K HIGH-DEF</span>
+              <span>SPECTRAL: OPTICAL RGB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 07: SPACE FACTS -->
+  <section class="facts-scatter-section" id="section-facts">
+    <div class="container">
+      <span class="eyebrow">COSMIC SCALE</span>
+      <h2 class="section-title">THE UNIVERSE BY NUMBERS</h2>
+      <p class="section-lead">
+        Scales so unfathomably immense that human intuition dissolves into cosmic awe.
+      </p>
+      <div class="facts-scatter-canvas">
+        <div class="fact-scatter-item fact-box-1">
+          <div class="fact-scatter-label">PHOTON TRANSIT TIME</div>
+          <div class="fact-massive-number" style="color: var(--secondary);">8M 20S</div>
+          <p class="fact-scatter-desc">Time it takes a photon born in the nuclear furnace of the Sun to cross 150 million km of vacuum and hit your eye on Earth.</p>
+        </div>
+        <div class="fact-scatter-item fact-box-2">
+          <div class="fact-scatter-label">SOLAR VOLUME CAPACITY</div>
+          <div class="fact-massive-number" style="color: var(--accent);">1.3M</div>
+          <p class="fact-scatter-desc">Number of Earth-sized planets that could fit inside the hollowed volume of our home star.</p>
+        </div>
+        <div class="fact-scatter-item fact-box-3">
+          <div class="fact-scatter-label">CHRONOLOGICAL AGE</div>
+          <div class="fact-massive-number" style="color: var(--primary);">13.8B</div>
+          <p class="fact-scatter-desc">Years elapsed since spacetime expanded from a microscopic point during the Big Bang.</p>
+        </div>
+        <div class="fact-scatter-item fact-box-4">
+          <div class="fact-scatter-label">OBSERVABLE HORIZON</div>
+          <div class="fact-massive-number" style="color: var(--secondary);">100B+</div>
+          <p class="fact-scatter-desc">Individual galaxies sprawling across the observable universe, each hosting hundreds of billions of suns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08: DEEP SPACE GALLERY -->
+  <section class="gallery-section" id="section-gallery">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+        <div>
+          <span class="eyebrow">OBSERVATORY ARCHIVE</span>
+          <h2 class="section-title">DEEP SPACE GALLERY</h2>
+          <p class="section-lead">
+            High-resolution captures from orbital and ground-based telescopes peering across deep space.
+          </p>
+        </div>
+        <a href="gallery.html" class="btn btn-secondary">VIEW FULL GALLERY</a>
+      </div>
+      <div class="gallery-mosaic-grid">
+        <div class="gallery-mosaic-item gallery-span-wide" data-title="Carina Cosmic Cliffs" data-desc="Stellar nursery captured by James Webb Space Telescope in infrared wavelengths." data-theme="cyan">
+          <canvas class="gallery-thumb-canvas" data-color="#00d9ff"></canvas>
+          <div class="gallery-overlay-badge">
+            <span class="gallery-cat-pill">JWST // NEBULA</span>
+            <h4 class="gallery-item-title">Carina Cosmic Cliffs</h4>
+          </div>
+        </div>
+        <div class="gallery-mosaic-item gallery-span-tall" data-title="Pillars of Creation" data-desc="Towering columns of interstellar gas and dust in the Eagle Nebula, M16." data-theme="magenta">
+          <canvas class="gallery-thumb-canvas" data-color="#ff77e6"></canvas>
+          <div class="gallery-overlay-badge">
+            <span class="gallery-cat-pill">HUBBLE // STELLAR NURSERY</span>
+            <h4 class="gallery-item-title">Pillars of Creation</h4>
+          </div>
+        </div>
+        <div class="gallery-mosaic-item" data-title="Andromeda Galaxy (M31)" data-desc="Our neighboring spiral galaxy, destined to collide with the Milky Way in 4.5 billion years." data-theme="gold">
+          <canvas class="gallery-thumb-canvas" data-color="#ffd166"></canvas>
+          <div class="gallery-overlay-badge">
+            <span class="gallery-cat-pill">GALAXY // SPIRAL</span>
+            <h4 class="gallery-item-title">Andromeda Galaxy</h4>
+          </div>
+        </div>
+        <div class="gallery-mosaic-item" data-title="Crab Nebula Supernova Remnant" data-desc="Expanding blast wave from a star observed exploding in 1054 A.D. by astronomers." data-theme="cyan">
+          <canvas class="gallery-thumb-canvas" data-color="#3a86ff"></canvas>
+          <div class="gallery-overlay-badge">
+            <span class="gallery-cat-pill">SUPERNOVA // PULSAR</span>
+            <h4 class="gallery-item-title">Crab Nebula Remnant</h4>
+          </div>
+        </div>
+        <div class="gallery-mosaic-item gallery-span-wide" data-title="Earth & Moon Horizon" data-desc="The iconic Blue Marble rising over the craters of the lunar surface." data-theme="cyan">
+          <canvas class="gallery-thumb-canvas" data-color="#4a90e2"></canvas>
+          <div class="gallery-overlay-badge">
+            <span class="gallery-cat-pill">APOLLO // EARTHRISE</span>
+            <h4 class="gallery-item-title">Earthrise over Luna</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="gallery-lightbox-modal">
+    <div class="lightbox-content-box">
+      <button class="lightbox-close-btn" id="lightbox-close-btn">&times;</button>
+      <canvas class="lightbox-view-canvas" id="lightbox-render-canvas"></canvas>
+      <div class="lightbox-meta">
+        <div>
+          <h3 style="font-family: var(--font-heading); color: #fff; margin-bottom: 0.4rem;" id="lightbox-item-title">Image Title</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;" id="lightbox-item-desc">Image description</p>
+        </div>
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary);">TELESCOPE HIGH-RES CAPTURE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 09: EXPLORE THE UNKNOWN -->
+  <section class="unknown-section" id="section-unknown">
+    <div class="unknown-cosmic-ring"></div>
+    <div class="container unknown-content">
+      <span class="eyebrow">THE UNCHARTED FRONTIER</span>
+      <h2 class="unknown-title">THERE IS STILL SO MUCH TO DISCOVER.</h2>
+      <p class="section-lead" style="margin: 0 auto 2.5rem; max-width: 650px;">
+        Beyond the worlds we know lies an endless frontier of questions, dark matter filaments, and unexplored star systems.
+      </p>
+      <a href="missions.html" class="btn btn-primary btn-glow">BEGIN YOUR JOURNEY</a>
+    </div>
+  </section>
+
+  <!-- SECTION 10: FINAL COSMIC CTA -->
+  <section class="final-cta-section" id="section-final">
+    <div class="container">
+      <div class="final-cta-card">
+        <canvas id="constellation-canvas"></canvas>
+        <div class="final-cta-content">
+          <span class="eyebrow">WHERE CURIOSITY TAKES FLIGHT</span>
+          <h2 class="final-cta-title">LOOK UP.<br />THINK BEYOND.</h2>
+          <p class="section-lead" style="margin: 0 auto 2.5rem;">
+            The universe is bigger than we imagine. Your voyage through celestial space starts with a single question.
+          </p>
+          <div class="hero-cta-group">
+            <a href="planets.html" class="btn btn-primary btn-glow">EXPLORE PLANETS</a>
+            <a href="missions.html" class="btn btn-secondary">VIEW MISSIONS</a>
+          </div>
+          <div class="final-footnote">THE JOURNEY HAS JUST BEGUN.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cosmic-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo-brand"><div class="logo-icon"><div class="logo-orbit"></div><div class="logo-core"></div></div><span class="logo-text">COSMOS</span></a>
+          <p style="color: var(--text-muted); margin-top: 1rem;">An interactive, high-end portal dedicated to the wonder, science, and exploration of our solar system and the deep universe.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Exploration</h4>
+          <ul class="footer-links">
+            <li><a href="planets.html">Planetary Index</a></li>
+            <li><a href="solar-system.html">Solar System 3D</a></li>
+            <li><a href="missions.html">Mission Control</a></li>
+            <li><a href="space-facts.html">Cosmic Facts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul class="footer-links">
+            <li><a href="gallery.html">Deep Space Gallery</a></li>
+            <li><a href="about.html">About Project</a></li>
+            <li><a href="about.html#manifesto">Why We Explore</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Dispatch</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.8rem;">Get cosmic discoveries and mission updates.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Dispatch!');">
+            <input type="email" class="newsletter-input" placeholder="Your email" required />
+            <button type="submit" class="newsletter-btn">JOIN</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 COSMOS. EXPLORE BEYOND. ALL RIGHTS RESERVED.</div>
+        <div class="social-links">
+          <a href="#" class="social-link">INSTAGRAM</a>
+          <a href="#" class="social-link">YOUTUBE</a>
+          <a href="#" class="social-link">X (TWITTER)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/sliders.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/orbit-simulation.js"></script>
+  <script src="js/missions-console.js"></script>
+  <script src="js/facts-counter.js"></script>
+  <script src="js/gallery-lightbox.js"></script>
+  <script src="js/planet-compare.js"></script>
+  <script src="js/hero-video.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

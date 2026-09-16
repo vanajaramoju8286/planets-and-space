@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Full-screen orbital mechanics and solar system simulation with zoom, speed controls, and celestial telemetry." />
+  <title>Interactive Solar System – COSMOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/designTokens.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/homepage.css" />
+  <link rel="stylesheet" href="css/inner-pages.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <canvas id="starfield-canvas"></canvas>
+  <div class="cosmic-vignette"></div>
+
+
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon"><div class="logo-orbit"></div><div class="logo-core"></div></div>
+        <span class="logo-text">COSMOS</span>
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="planets.html" class="">Planets</a></li>
+          <li><a href="solar-system.html" class="active">Solar System</a></li>
+          <li><a href="missions.html" class="">Missions</a></li>
+          <li><a href="index.html#section-featured">Discover</a></li>
+          <li><a href="space-facts.html" class="">Space Facts</a></li>
+          <li><a href="gallery.html" class="">Gallery</a></li>
+          <li><a href="about.html" class="">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="audio-toggle-btn" aria-label="Toggle Ambient Sound" title="Cosmic Ambient Sound">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        </button>
+        <a href="solar-system.html" class="btn btn-primary btn-glow">EXPLORE SPACE</a>
+        <button class="mobile-nav-toggle" aria-label="Open Menu"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu-drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="">Home</a></li>
+      <li><a href="planets.html" class="">Planets</a></li>
+      <li><a href="solar-system.html" class="active">Solar System</a></li>
+      <li><a href="missions.html" class="">Missions</a></li>
+      <li><a href="space-facts.html" class="">Space Facts</a></li>
+      <li><a href="gallery.html" class="">Gallery</a></li>
+      <li><a href="about.html" class="">About</a></li>
+    </ul>
+    <div style="margin-top: 2rem;"><a href="solar-system.html" class="btn btn-primary" style="width:100%;">LAUNCH SIMULATION</a></div>
+  </div>
+
+<main>
+  <div class="page-hero-banner" style="padding-bottom: 2rem;">
+    <div class="container">
+      <span class="eyebrow">HELIOCENTRIC EXPLORATION</span>
+      <h1 class="page-hero-title">SOLAR DYNAMICS & ORBITS</h1>
+      <p class="section-lead" style="margin: 0 auto;">
+        Astronomical mechanics, solar flare physics, and orbital resonance across the solar boundary.
+      </p>
+    </div>
+  </div>
+
+  <div class="container" style="margin-bottom: 8rem;">
+    <!-- Interactive Heliocentric Planetary Scale & Distance Visualizer -->
+    <div class="glass-panel" style="padding: 3rem; margin-bottom: 4rem;">
+      <span class="eyebrow">ASTRONOMICAL SCALE CALCULATOR</span>
+      <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">HELIOCENTRIC DISTANCE & LIGHT-TIME</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2.5rem; max-width: 700px;">
+        Select any planetary orbit to calculate real-time electromagnetic signal latency and gravitational velocity relative to the Sun.
+      </p>
+
+      <!-- Planetary Distance Visual Track -->
+      <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 1.2rem 1.8rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff;">01. MERCURY</span>
+            <div style="color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono);">0.387 AU (57.9M km)</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="color: var(--secondary); font-family: var(--font-mono); font-weight: 700;">3.2 MIN LIGHT-TIME</div>
+            <div style="color: var(--text-muted); font-size: 0.75rem;">ORBITAL VELOCITY: 47.4 km/s</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 1.2rem 1.8rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff;">02. VENUS</span>
+            <div style="color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono);">0.723 AU (108.2M km)</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="color: var(--secondary); font-family: var(--font-mono); font-weight: 700;">6.0 MIN LIGHT-TIME</div>
+            <div style="color: var(--text-muted); font-size: 0.75rem;">ORBITAL VELOCITY: 35.0 km/s</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(0, 217, 255, 0.08); border: 1px solid var(--secondary); padding: 1.2rem 1.8rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff;">03. EARTH</span>
+            <div style="color: var(--secondary); font-size: 0.8rem; font-family: var(--font-mono);">1.000 AU (149.6M km) - BASELINE REFERENCE</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="color: var(--secondary); font-family: var(--font-mono); font-weight: 700;">8.3 MIN LIGHT-TIME</div>
+            <div style="color: var(--text-muted); font-size: 0.75rem;">ORBITAL VELOCITY: 29.8 km/s</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 1.2rem 1.8rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff;">04. MARS</span>
+            <div style="color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono);">1.524 AU (227.9M km)</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="color: var(--secondary); font-family: var(--font-mono); font-weight: 700;">12.6 MIN LIGHT-TIME</div>
+            <div style="color: var(--text-muted); font-size: 0.75rem;">ORBITAL VELOCITY: 24.1 km/s</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 1.2rem 1.8rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff;">05. JUPITER</span>
+            <div style="color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono);">5.204 AU (778.5M km)</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="color: var(--secondary); font-family: var(--font-mono); font-weight: 700;">43.2 MIN LIGHT-TIME</div>
+            <div style="color: var(--text-muted); font-size: 0.75rem;">ORBITAL VELOCITY: 13.1 km/s</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 1.2rem 1.8rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff;">06. SATURN</span>
+            <div style="color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono);">9.582 AU (1.43B km)</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="color: var(--secondary); font-family: var(--font-mono); font-weight: 700;">79.3 MIN LIGHT-TIME</div>
+            <div style="color: var(--text-muted); font-size: 0.75rem;">ORBITAL VELOCITY: 9.7 km/s</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 1.2rem 1.8rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff;">07. URANUS</span>
+            <div style="color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono);">19.20 AU (2.87B km)</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="color: var(--secondary); font-family: var(--font-mono); font-weight: 700;">2.65 HOURS LIGHT-TIME</div>
+            <div style="color: var(--text-muted); font-size: 0.75rem;">ORBITAL VELOCITY: 6.8 km/s</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 1.2rem 1.8rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff;">08. NEPTUNE</span>
+            <div style="color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono);">30.05 AU (4.50B km)</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="color: var(--secondary); font-family: var(--font-mono); font-weight: 700;">4.16 HOURS LIGHT-TIME</div>
+            <div style="color: var(--text-muted); font-size: 0.75rem;">ORBITAL VELOCITY: 5.4 km/s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solar Physics Deep-Dive Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
+      <div class="glass-panel" style="padding: 2.5rem; border-top: 3px solid #ffaa00;">
+        <span class="eyebrow">CORONAL MASS EJECTIONS</span>
+        <h3 style="font-family: var(--font-heading); color: #fff; margin-bottom: 1rem;">SOLAR FLARES & SPACE WEATHER</h3>
+        <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
+          Magnetic reconnection events on the photosphere accelerate billions of tons of magnetized plasma across the solar system at speeds exceeding 3,000 km/s, triggering geomagnetic auroras across planetary magnetospheres.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 2.5rem; border-top: 3px solid var(--secondary);">
+        <span class="eyebrow">GRAVITATIONAL EQUILIBRIUM</span>
+        <h3 style="font-family: var(--font-heading); color: #fff; margin-bottom: 1rem;">HYDROSTATIC BALANCE</h3>
+        <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
+          The Sun maintains a delicate stability where outward radiation pressure generated by core hydrogen fusion exactly matches the colossal inward crush of its own gravity—a stable dance lasting 10 billion years.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 2.5rem; border-top: 3px solid var(--accent);">
+        <span class="eyebrow">THE HELIOSPHERE BOUNDARY</span>
+        <h3 style="font-family: var(--font-heading); color: #fff; margin-bottom: 1rem;">THE TERMINATION SHOCK</h3>
+        <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
+          Where the supersonic solar wind slows below the speed of sound before colliding with interstellar cosmic rays. This bubble protects life on Earth by deflecting over 70% of lethal galactic radiation.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cosmic-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo-brand"><div class="logo-icon"><div class="logo-orbit"></div><div class="logo-core"></div></div><span class="logo-text">COSMOS</span></a>
+          <p style="color: var(--text-muted); margin-top: 1rem;">An interactive, high-end portal dedicated to the wonder, science, and exploration of our solar system and the deep universe.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Exploration</h4>
+          <ul class="footer-links">
+            <li><a href="planets.html">Planetary Index</a></li>
+            <li><a href="solar-system.html">Solar System 3D</a></li>
+            <li><a href="missions.html">Mission Control</a></li>
+            <li><a href="space-facts.html">Cosmic Facts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul class="footer-links">
+            <li><a href="gallery.html">Deep Space Gallery</a></li>
+            <li><a href="about.html">About Project</a></li>
+            <li><a href="about.html#manifesto">Why We Explore</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Dispatch</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.8rem;">Get cosmic discoveries and mission updates.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Dispatch!');">
+            <input type="email" class="newsletter-input" placeholder="Your email" required />
+            <button type="submit" class="newsletter-btn">JOIN</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 COSMOS. EXPLORE BEYOND. ALL RIGHTS RESERVED.</div>
+        <div class="social-links">
+          <a href="#" class="social-link">INSTAGRAM</a>
+          <a href="#" class="social-link">YOUTUBE</a>
+          <a href="#" class="social-link">X (TWITTER)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/cursor.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/orbit-simulation.js"></script>
+  <script src="js/missions-console.js"></script>
+  <script src="js/facts-counter.js"></script>
+  <script src="js/gallery-lightbox.js"></script>
+  <script src="js/planet-compare.js"></script>
+  <script src="js/hero-video.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
